@@ -1,16 +1,24 @@
 {
-  "name": "webpack-starter",
+  "name": "poll-widget",
   "version": "1.0.0",
-  "description": "A template repo to get started on a webpack 5 built frontend application",
+  "description": "A web component for a poll widget that can be embedded into a web page. Developed using [LIT](https://lit.dev/)",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve",
     "deploy": "npm run build && gh-pages -d dist"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:firstprateek/poll-widget.git"
+  },
+  "keywords": [
+    "poll widget",
+    "lit"
+  ],
+  "author": "firstprateek <me@pjoshi.dev> (prateekjoshi.dev)",
   "license": "ISC",
+  "homepage": "https://github.com/firstprateek/poll-widget",
   "devDependencies": {
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.2",

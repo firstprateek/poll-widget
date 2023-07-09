@@ -35,14 +35,14 @@ import {styleMap} from 'lit/directives/style-map.js';
  * 
  * @fires submit - Indicates when the user submits a vote
  * 
- * @cssproperty --poll-background-color - background color of the poll
- * @cssproperty --poll-color - text color
+ * @cssproperty --poll-background-color - background color of the poll, default is purple
+ * @cssproperty --poll-color - text color, default white
  * @cssproperty --poll-font-size - text font size
- * @cssproperty --poll-bar-color - color for the bars
+ * @cssproperty --poll-bar-color - color for the bars, default cornfield blue
  * @cssproperty --poll-vote-color - color for the votes
  */
 
-class PollWidget extends LitElement {
+export default class PollWidget extends LitElement {
     static styles = css`
         * {
             box-sizing: border-box;
@@ -50,10 +50,14 @@ class PollWidget extends LitElement {
 
         :host {
             --background-color: var(--poll-background-color, purple);
+            --color: var(--poll-color, white);
+            --bar-color: var(--poll-bar-color, #6495ED);
+            --vote-color: var(--poll-vote-color, white);
         }
 
         #poll-container {
             background-color: var(--background-color);
+            color: var(--color);
             display: flex;
             flex-direction: column;
             padding: 10px;
@@ -95,8 +99,12 @@ class PollWidget extends LitElement {
         }
 
         .option-text {
-            background-color: #6495ED;
+            background-color: var(--bar-color);
             width: 90%;
+        }
+
+        .option-votes {
+            color: var(--vote-color);
         }
     `;
 
