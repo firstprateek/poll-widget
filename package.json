@@ -35,6 +35,7 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
-    "lit": "^2.7.6"
+    "lit": "^2.7.6",
+    "timeago.js": "^4.0.2"
   }
 }

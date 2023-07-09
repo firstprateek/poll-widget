@@ -1,5 +1,6 @@
 import {LitElement, html, css} from 'lit';
 import {styleMap} from 'lit/directives/style-map.js';
+import {timeAgo} from '../lib/time-ago.js';
 
 /**
  * Poll widget: <poll-widget></poll-widget>.
@@ -30,15 +31,17 @@ import {styleMap} from 'lit/directives/style-map.js';
  * @property height - Number. height of the widget in pixels, if not defined, the height is set to 'auto'
  * @property question - String. Question that is being polled
  * @property options - Array. List of options for the question. Array of objects. Each object should have an id and text
- * @property updateFrequency - Number. Minutes after which the poll results should be auto-updated
- * @property orientation - String. "horizontal" or "vertical" to choose bar chart orientation
+ * @property updateFrequency - Number. Minutes after which the poll results should be auto-updated, default 60 mins
+ * @property timeAgo - Boolean. Show time ago the poll results were updated
  * 
  * @fires submit - Indicates when the user submits a vote
  * 
  * @cssproperty --poll-background-color - background color of the poll, default is purple
  * @cssproperty --poll-color - text color, default white
- * @cssproperty --poll-font-size - text font size
- * @cssproperty --poll-bar-color - color for the bars, default cornfield blue
+ * @cssproperty --poll-font-size - font size of text, title is 1.5 em, default 16px 
+ * @cssproperty --poll-border-radius - border radius of the poll widget, default 5px
+ * @cssproperty --poll-bar-border-radius - border radius of the poll bars, default 2px
+ * @cssproperty --poll-bar-color - color for the bars, default Cornflower Blue
  * @cssproperty --poll-vote-color - color for the votes
  */
 
@@ -53,6 +56,9 @@ export default class PollWidget extends LitElement {
             --color: var(--poll-color, white);
             --bar-color: var(--poll-bar-color, #6495ED);
             --vote-color: var(--poll-vote-color, white);
+            --border-radius: var(--poll-border-radius, 5px);
+            --bar-border-radius: var(--poll-bar-border-radius, 2px);
+            --font-size: var(--poll-font-size, 16px);
         }
 
         #poll-container {
@@ -61,6 +67,8 @@ export default class PollWidget extends LitElement {
             display: flex;
             flex-direction: column;
             padding: 10px;
+            border-radius: var(--border-radius);
+            font-size: var(--font-size);
         }
 
         h2 {
@@ -84,6 +92,10 @@ export default class PollWidget extends LitElement {
             list-style: none;
         }
 
+        #option {
+            margin-bottom: 5px;
+        }
+
         #option-content {
             display: flex;
             justify-content: space-between;
@@ -101,15 +113,26 @@ export default class PollWidget extends LitElement {
         .option-text {
             background-color: var(--bar-color);
             width: 90%;
+            padding: 5px;
+            border-radius: var(--bar-border-radius);
         }
 
         .option-votes {
             color: var(--vote-color);
         }
+
+        #time-ago-container {
+            height: var(--font-size);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 0.8em;
+        }
     `;
 
     static properties = {
         _showResults: {state: true},
+        _updateTime: {state: true},
         requestAPI: {},
         voteAPI: {},
         width: { type: Number },
@@ -117,12 +140,13 @@ export default class PollWidget extends LitElement {
         question: {},
         options: { type: Array },
         updateFrequency: { type: Number },
-        orientation: {},
+        timeAgo: {},
     }
 
     constructor() {
         super();
         this._showResults = false;
+        this._updateTime = new Date();
         this.requestAPI = '';
         this.voteAPI = '';
         this.width = 0;
@@ -130,7 +154,7 @@ export default class PollWidget extends LitElement {
         this.question = 'What is your favorite JS View library?';
         this.options = [{ id: 1, text: 'Lit' }, { id: 2, text: 'React' }, { id: 3, text: 'Angular' }];
         this.updateFrequency = 60;
-        this.orientation = 'horizontal';
+        this.timeAgo = true;
     }
 
     connectedCallback() {
@@ -161,6 +185,22 @@ export default class PollWidget extends LitElement {
         return this.renderRoot?.querySelector(`[data-option-id="${id}"] .option-text`) ?? null;
     }
 
+    timeAgoTemplate() {
+        if (!this.timeAgo) {
+            return html``;
+        }
+
+        return html`
+            <div id="time-ago-container">
+                ${
+                    this._showResults ? 
+                    html`<span aria-label="Poll Updated:">Updated: ${timeAgo(this._updateTime)}</span>` : 
+                    html``
+                }
+            </div>
+        `;
+    }
+
     render() {
         const width = this.width ? `${this.width}px` : 'auto';
         const height = this.height ? `${this.height}px` : 'auto';
@@ -180,6 +220,7 @@ export default class PollWidget extends LitElement {
                             </li>`
                     )}
                 </ol>
+                ${this.timeAgoTemplate()}
             </section>
         `;
     }
@@ -218,12 +259,13 @@ export default class PollWidget extends LitElement {
     updateView(result) {
         this.question = result.question;
         this.options = result.options;
+        this._updateTime = new Date();
     }
 
     setupPollUpdater() {
         if (!this._intervalTimer) {
             this._intervalTimer = setInterval(
-                this.updatePollResults, this.updateFrequency * 60 * 1000
+                this.updatePollResults.bind(this), this.updateFrequency * 60 * 1000
             );
         }
     }
