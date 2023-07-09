@@ -9,9 +9,13 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ PollWidget)
+/* harmony export */ });
 /* harmony import */ var lit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit */ "./node_modules/lit/index.js");
 /* harmony import */ var lit_directives_style_map_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit/directives/style-map.js */ "./node_modules/lit/directives/style-map.js");
-var _templateObject, _templateObject2, _templateObject3;
+/* harmony import */ var _lib_time_ago_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/time-ago.js */ "./src/lib/time-ago.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -38,6 +42,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
 
 
 
@@ -70,15 +75,17 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
  * @property height - Number. height of the widget in pixels, if not defined, the height is set to 'auto'
  * @property question - String. Question that is being polled
  * @property options - Array. List of options for the question. Array of objects. Each object should have an id and text
- * @property updateFrequency - Number. Minutes after which the poll results should be auto-updated
- * @property orientation - String. "horizontal" or "vertical" to choose bar chart orientation
+ * @property updateFrequency - Number. Minutes after which the poll results should be auto-updated, default 60 mins
+ * @property timeAgo - Boolean. Show time ago the poll results were updated
  * 
  * @fires submit - Indicates when the user submits a vote
  * 
  * @cssproperty --poll-background-color - background color of the poll, default is purple
  * @cssproperty --poll-color - text color, default white
- * @cssproperty --poll-font-size - text font size
- * @cssproperty --poll-bar-color - color for the bars, default cornfield blue
+ * @cssproperty --poll-font-size - font size of text, title is 1.5 em, default 16px 
+ * @cssproperty --poll-border-radius - border radius of the poll widget, default 5px
+ * @cssproperty --poll-bar-border-radius - border radius of the poll bars, default 2px
+ * @cssproperty --poll-bar-color - color for the bars, default Cornflower Blue
  * @cssproperty --poll-vote-color - color for the votes
  */
 var PollWidget = /*#__PURE__*/function (_LitElement) {
@@ -89,6 +96,7 @@ var PollWidget = /*#__PURE__*/function (_LitElement) {
     _classCallCheck(this, PollWidget);
     _this = _super.call(this);
     _this._showResults = false;
+    _this._updateTime = new Date();
     _this.requestAPI = '';
     _this.voteAPI = '';
     _this.width = 0;
@@ -105,7 +113,7 @@ var PollWidget = /*#__PURE__*/function (_LitElement) {
       text: 'Angular'
     }];
     _this.updateFrequency = 60;
-    _this.orientation = 'horizontal';
+    _this.timeAgo = true;
     return _this;
   }
   _createClass(PollWidget, [{
@@ -151,6 +159,14 @@ var PollWidget = /*#__PURE__*/function (_LitElement) {
       return (_this$renderRoot$quer = (_this$renderRoot = this.renderRoot) === null || _this$renderRoot === void 0 ? void 0 : _this$renderRoot.querySelector("[data-option-id=\"".concat(id, "\"] .option-text"))) !== null && _this$renderRoot$quer !== void 0 ? _this$renderRoot$quer : null;
     }
   }, {
+    key: "timeAgoTemplate",
+    value: function timeAgoTemplate() {
+      if (!this.timeAgo) {
+        return (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject || (_templateObject = _taggedTemplateLiteral([""])));
+      }
+      return (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n            <div id=\"time-ago-container\">\n                ", "\n            </div>\n        "])), this._showResults ? (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["<span aria-label=\"Poll Updated:\">Updated: ", "</span>"])), (0,_lib_time_ago_js__WEBPACK_IMPORTED_MODULE_2__.timeAgo)(this._updateTime)) : (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([""]))));
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -160,9 +176,9 @@ var PollWidget = /*#__PURE__*/function (_LitElement) {
         width: width,
         height: height
       };
-      return (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n            <section class=", " style=", " id=\"poll-container\">\n                <h2 id=\"question\">", "</h2>\n                <ol id=\"option-container\">\n                    ", "\n                </ol>\n            </section>\n        "])), this._showResults ? 'results' : 'hide-results', (0,lit_directives_style_map_js__WEBPACK_IMPORTED_MODULE_1__.styleMap)(dimensions), this.question, this.options.map(function (option) {
-        return (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n                            <li data-option-id=", " @click=", " id=\"option\">\n                                <ul id=\"option-content\">\n                                    <li class=\"option-text\">", "</li>\n                                    <li class=\"option-votes\">", "</li>\n                                </ul>\n                            </li>"])), option.id, _this3.handleOptionClick, option.text, option.votes);
-      }));
+      return (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n            <section class=", " style=", " id=\"poll-container\">\n                <h2 id=\"question\">", "</h2>\n                <ol id=\"option-container\">\n                    ", "\n                </ol>\n                ", "\n            </section>\n        "])), this._showResults ? 'results' : 'hide-results', (0,lit_directives_style_map_js__WEBPACK_IMPORTED_MODULE_1__.styleMap)(dimensions), this.question, this.options.map(function (option) {
+        return (0,lit__WEBPACK_IMPORTED_MODULE_0__.html)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n                            <li data-option-id=", " @click=", " id=\"option\">\n                                <ul id=\"option-content\">\n                                    <li class=\"option-text\">", "</li>\n                                    <li class=\"option-votes\">", "</li>\n                                </ul>\n                            </li>"])), option.id, _this3.handleOptionClick, option.text, option.votes);
+      }), this.timeAgoTemplate());
     }
   }, {
     key: "handleOptionClick",
@@ -263,12 +279,13 @@ var PollWidget = /*#__PURE__*/function (_LitElement) {
     value: function updateView(result) {
       this.question = result.question;
       this.options = result.options;
+      this._updateTime = new Date();
     }
   }, {
     key: "setupPollUpdater",
     value: function setupPollUpdater() {
       if (!this._intervalTimer) {
-        this._intervalTimer = setInterval(this.updatePollResults, this.updateFrequency * 60 * 1000);
+        this._intervalTimer = setInterval(this.updatePollResults.bind(this), this.updateFrequency * 60 * 1000);
       }
     }
   }, {
@@ -280,9 +297,12 @@ var PollWidget = /*#__PURE__*/function (_LitElement) {
   }]);
   return PollWidget;
 }(lit__WEBPACK_IMPORTED_MODULE_0__.LitElement);
-_defineProperty(PollWidget, "styles", (0,lit__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n        * {\n            box-sizing: border-box;\n        }\n\n        :host {\n            --background-color: var(--poll-background-color, purple);\n            --color: var(--poll-color, white);\n            --bar-color: var(--poll-bar-color, #6495ED);\n            --vote-color: var(--poll-vote-color, white);\n        }\n\n        #poll-container {\n            background-color: var(--background-color);\n            color: var(--color);\n            display: flex;\n            flex-direction: column;\n            padding: 10px;\n        }\n\n        h2 {\n            margin: 0;\n            padding: 15px 0;\n        }\n\n        #option-container {\n            display: flex;\n            flex-direction: column;\n            height: 100%;\n            justify-content: space-evenly;\n            margin: 0;\n        }\n\n        ol, ul {\n            padding: 0;\n        }\n\n        li {\n            list-style: none;\n        }\n\n        #option-content {\n            display: flex;\n            justify-content: space-between;\n        }\n\n        .hide-results .option-text {\n            width: 100%;\n        }\n\n        .hide-results .option-votes {\n            width: 0px;\n            overflow: hidden;\n        }\n\n        .option-text {\n            background-color: var(--bar-color);\n            width: 90%;\n        }\n\n        .option-votes {\n            color: var(--vote-color);\n        }\n    "]))));
+_defineProperty(PollWidget, "styles", (0,lit__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n        * {\n            box-sizing: border-box;\n        }\n\n        :host {\n            --background-color: var(--poll-background-color, purple);\n            --color: var(--poll-color, white);\n            --bar-color: var(--poll-bar-color, #6495ED);\n            --vote-color: var(--poll-vote-color, white);\n            --border-radius: var(--poll-border-radius, 5px);\n            --bar-border-radius: var(--poll-bar-border-radius, 2px);\n            --font-size: var(--poll-font-size, 16px);\n        }\n\n        #poll-container {\n            background-color: var(--background-color);\n            color: var(--color);\n            display: flex;\n            flex-direction: column;\n            padding: 10px;\n            border-radius: var(--border-radius);\n            font-size: var(--font-size);\n        }\n\n        h2 {\n            margin: 0;\n            padding: 15px 0;\n        }\n\n        #option-container {\n            display: flex;\n            flex-direction: column;\n            height: 100%;\n            justify-content: space-evenly;\n            margin: 0;\n        }\n\n        ol, ul {\n            padding: 0;\n        }\n\n        li {\n            list-style: none;\n        }\n\n        #option {\n            margin-bottom: 5px;\n        }\n\n        #option-content {\n            display: flex;\n            justify-content: space-between;\n        }\n\n        .hide-results .option-text {\n            width: 100%;\n        }\n\n        .hide-results .option-votes {\n            width: 0px;\n            overflow: hidden;\n        }\n\n        .option-text {\n            background-color: var(--bar-color);\n            width: 90%;\n            padding: 5px;\n            border-radius: var(--bar-border-radius);\n        }\n\n        .option-votes {\n            color: var(--vote-color);\n        }\n\n        #time-ago-container {\n            height: var(--font-size);\n            display: flex;\n            flex-direction: column;\n            align-items: flex-end;\n            font-size: 0.8em;\n        }\n    "]))));
 _defineProperty(PollWidget, "properties", {
   _showResults: {
+    state: true
+  },
+  _updateTime: {
     state: true
   },
   requestAPI: {},
@@ -300,9 +320,496 @@ _defineProperty(PollWidget, "properties", {
   updateFrequency: {
     type: Number
   },
-  orientation: {}
+  timeAgo: {}
 });
+
 customElements.define('poll-widget', PollWidget);
+
+/***/ }),
+
+/***/ "./src/lib/time-ago.js":
+/*!*****************************!*\
+  !*** ./src/lib/time-ago.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   timeAgo: () => (/* binding */ timeAgo)
+/* harmony export */ });
+/* harmony import */ var timeago_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! timeago.js */ "./node_modules/timeago.js/esm/index.js");
+/* harmony import */ var lit_async_directive_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lit/async-directive.js */ "./node_modules/lit/async-directive.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+var TimeAgoDirective = /*#__PURE__*/function (_AsyncDirective) {
+  _inherits(TimeAgoDirective, _AsyncDirective);
+  var _super = _createSuper(TimeAgoDirective);
+  function TimeAgoDirective() {
+    var _this;
+    _classCallCheck(this, TimeAgoDirective);
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    _this = _super.call.apply(_super, [this].concat(args));
+    _defineProperty(_assertThisInitialized(_this), "timer", void 0);
+    _defineProperty(_assertThisInitialized(_this), "time", void 0);
+    return _this;
+  }
+  _createClass(TimeAgoDirective, [{
+    key: "render",
+    value: function render(time) {
+      return (0,timeago_js__WEBPACK_IMPORTED_MODULE_0__.format)(time);
+    }
+  }, {
+    key: "update",
+    value: function update(part, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+        time = _ref2[0];
+      this.time = time;
+      if (this.isConnected) {
+        this.ensureTimerStarted();
+      }
+      return this.render(time);
+    }
+  }, {
+    key: "ensureTimerStarted",
+    value: function ensureTimerStarted() {
+      var _this2 = this;
+      if (this.timer === undefined) {
+        this.timer = setInterval(function () {
+          _this2.setValue(_this2.render(_this2.time));
+        }, 1000);
+      }
+    }
+  }, {
+    key: "ensureTimerStopped",
+    value: function ensureTimerStopped() {
+      clearInterval(this.timer);
+      this.timer = undefined;
+    }
+  }, {
+    key: "disconnected",
+    value: function disconnected() {
+      this.ensureTimerStopped();
+    }
+  }]);
+  return TimeAgoDirective;
+}(lit_async_directive_js__WEBPACK_IMPORTED_MODULE_1__.AsyncDirective);
+var timeAgo = (0,lit_async_directive_js__WEBPACK_IMPORTED_MODULE_1__.directive)(TimeAgoDirective);
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/format.js":
+/*!***********************************************!*\
+  !*** ./node_modules/timeago.js/esm/format.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   format: () => (/* binding */ format)
+/* harmony export */ });
+/* harmony import */ var _utils_date__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/date */ "./node_modules/timeago.js/esm/utils/date.js");
+/* harmony import */ var _register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./register */ "./node_modules/timeago.js/esm/register.js");
+
+
+/**
+ * format a TDate into string
+ * @param date
+ * @param locale
+ * @param opts
+ */
+var format = function (date, locale, opts) {
+    // diff seconds
+    var sec = (0,_utils_date__WEBPACK_IMPORTED_MODULE_0__.diffSec)(date, opts && opts.relativeDate);
+    // format it with locale
+    return (0,_utils_date__WEBPACK_IMPORTED_MODULE_0__.formatDiff)(sec, (0,_register__WEBPACK_IMPORTED_MODULE_1__.getLocale)(locale));
+};
+//# sourceMappingURL=format.js.map
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/timeago.js/esm/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cancel: () => (/* reexport safe */ _realtime__WEBPACK_IMPORTED_MODULE_4__.cancel),
+/* harmony export */   format: () => (/* reexport safe */ _format__WEBPACK_IMPORTED_MODULE_3__.format),
+/* harmony export */   register: () => (/* reexport safe */ _register__WEBPACK_IMPORTED_MODULE_2__.register),
+/* harmony export */   render: () => (/* reexport safe */ _realtime__WEBPACK_IMPORTED_MODULE_4__.render)
+/* harmony export */ });
+/* harmony import */ var _lang_en_US__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lang/en_US */ "./node_modules/timeago.js/esm/lang/en_US.js");
+/* harmony import */ var _lang_zh_CN__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lang/zh_CN */ "./node_modules/timeago.js/esm/lang/zh_CN.js");
+/* harmony import */ var _register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./register */ "./node_modules/timeago.js/esm/register.js");
+/* harmony import */ var _format__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./format */ "./node_modules/timeago.js/esm/format.js");
+/* harmony import */ var _realtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./realtime */ "./node_modules/timeago.js/esm/realtime.js");
+/**
+ * Created by hustcc on 18/5/20.
+ * Contract: i@hust.cc
+ */
+
+
+
+(0,_register__WEBPACK_IMPORTED_MODULE_2__.register)('en_US', _lang_en_US__WEBPACK_IMPORTED_MODULE_0__["default"]);
+(0,_register__WEBPACK_IMPORTED_MODULE_2__.register)('zh_CN', _lang_zh_CN__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/lang/en_US.js":
+/*!***************************************************!*\
+  !*** ./node_modules/timeago.js/esm/lang/en_US.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var EN_US = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year'];
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(diff, idx) {
+    if (idx === 0)
+        return ['just now', 'right now'];
+    var unit = EN_US[Math.floor(idx / 2)];
+    if (diff > 1)
+        unit += 's';
+    return [diff + " " + unit + " ago", "in " + diff + " " + unit];
+}
+//# sourceMappingURL=en_US.js.map
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/lang/zh_CN.js":
+/*!***************************************************!*\
+  !*** ./node_modules/timeago.js/esm/lang/zh_CN.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var ZH_CN = ['秒', '分钟', '小时', '天', '周', '个月', '年'];
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(diff, idx) {
+    if (idx === 0)
+        return ['刚刚', '片刻后'];
+    var unit = ZH_CN[~~(idx / 2)];
+    return [diff + " " + unit + "\u524D", diff + " " + unit + "\u540E"];
+}
+//# sourceMappingURL=zh_CN.js.map
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/realtime.js":
+/*!*************************************************!*\
+  !*** ./node_modules/timeago.js/esm/realtime.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cancel: () => (/* binding */ cancel),
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var _utils_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/dom */ "./node_modules/timeago.js/esm/utils/dom.js");
+/* harmony import */ var _utils_date__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/date */ "./node_modules/timeago.js/esm/utils/date.js");
+/* harmony import */ var _register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./register */ "./node_modules/timeago.js/esm/register.js");
+
+
+
+// all realtime timer
+var TIMER_POOL = {};
+/**
+ * clear a timer from pool
+ * @param tid
+ */
+var clear = function (tid) {
+    clearTimeout(tid);
+    delete TIMER_POOL[tid];
+};
+// run with timer(setTimeout)
+function run(node, date, localeFunc, opts) {
+    // clear the node's exist timer
+    clear((0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.getTimerId)(node));
+    var relativeDate = opts.relativeDate, minInterval = opts.minInterval;
+    // get diff seconds
+    var diff = (0,_utils_date__WEBPACK_IMPORTED_MODULE_1__.diffSec)(date, relativeDate);
+    // render
+    node.innerText = (0,_utils_date__WEBPACK_IMPORTED_MODULE_1__.formatDiff)(diff, localeFunc);
+    var tid = setTimeout(function () {
+        run(node, date, localeFunc, opts);
+    }, Math.min(Math.max((0,_utils_date__WEBPACK_IMPORTED_MODULE_1__.nextInterval)(diff), minInterval || 1) * 1000, 0x7fffffff));
+    // there is no need to save node in object. Just save the key
+    TIMER_POOL[tid] = 0;
+    (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.setTimerId)(node, tid);
+}
+/**
+ * cancel a timer or all timers
+ * @param node - node hosting the time string
+ */
+function cancel(node) {
+    // cancel one
+    if (node)
+        clear((0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.getTimerId)(node));
+    // cancel all
+    // @ts-ignore
+    else
+        Object.keys(TIMER_POOL).forEach(clear);
+}
+/**
+ * render a dom realtime
+ * @param nodes
+ * @param locale
+ * @param opts
+ */
+function render(nodes, locale, opts) {
+    // by .length
+    // @ts-ignore
+    var nodeList = nodes.length ? nodes : [nodes];
+    nodeList.forEach(function (node) {
+        run(node, (0,_utils_dom__WEBPACK_IMPORTED_MODULE_0__.getDateAttribute)(node), (0,_register__WEBPACK_IMPORTED_MODULE_2__.getLocale)(locale), opts || {});
+    });
+    return nodeList;
+}
+//# sourceMappingURL=realtime.js.map
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/register.js":
+/*!*************************************************!*\
+  !*** ./node_modules/timeago.js/esm/register.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getLocale: () => (/* binding */ getLocale),
+/* harmony export */   register: () => (/* binding */ register)
+/* harmony export */ });
+/**
+ * Created by hustcc on 18/5/20.
+ * Contract: i@hust.cc
+ */
+/**
+ * All supported locales
+ */
+var Locales = {};
+/**
+ * register a locale
+ * @param locale
+ * @param func
+ */
+var register = function (locale, func) {
+    Locales[locale] = func;
+};
+/**
+ * get a locale, default is en_US
+ * @param locale
+ * @returns {*}
+ */
+var getLocale = function (locale) {
+    return Locales[locale] || Locales['en_US'];
+};
+//# sourceMappingURL=register.js.map
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/utils/date.js":
+/*!***************************************************!*\
+  !*** ./node_modules/timeago.js/esm/utils/date.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   diffSec: () => (/* binding */ diffSec),
+/* harmony export */   formatDiff: () => (/* binding */ formatDiff),
+/* harmony export */   nextInterval: () => (/* binding */ nextInterval),
+/* harmony export */   toDate: () => (/* binding */ toDate)
+/* harmony export */ });
+/**
+ * Created by hustcc on 18/5/20.
+ * Contract: i@hust.cc
+ */
+var SEC_ARRAY = [
+    60,
+    60,
+    24,
+    7,
+    365 / 7 / 12,
+    12,
+];
+/**
+ * format Date / string / timestamp to timestamp
+ * @param input
+ * @returns {*}
+ */
+function toDate(input) {
+    if (input instanceof Date)
+        return input;
+    // @ts-ignore
+    if (!isNaN(input) || /^\d+$/.test(input))
+        return new Date(parseInt(input));
+    input = (input || '')
+        // @ts-ignore
+        .trim()
+        .replace(/\.\d+/, '') // remove milliseconds
+        .replace(/-/, '/')
+        .replace(/-/, '/')
+        .replace(/(\d)T(\d)/, '$1 $2')
+        .replace(/Z/, ' UTC') // 2017-2-5T3:57:52Z -> 2017-2-5 3:57:52UTC
+        .replace(/([+-]\d\d):?(\d\d)/, ' $1$2'); // -04:00 -> -0400
+    return new Date(input);
+}
+/**
+ * format the diff second to *** time ago, with setting locale
+ * @param diff
+ * @param localeFunc
+ * @returns
+ */
+function formatDiff(diff, localeFunc) {
+    /**
+     * if locale is not exist, use defaultLocale.
+     * if defaultLocale is not exist, use build-in `en`.
+     * be sure of no error when locale is not exist.
+     *
+     * If `time in`, then 1
+     * If `time ago`, then 0
+     */
+    var agoIn = diff < 0 ? 1 : 0;
+    /**
+     * Get absolute value of number (|diff| is non-negative) value of x
+     * |diff| = diff if diff is positive
+     * |diff| = -diff if diff is negative
+     * |0| = 0
+     */
+    diff = Math.abs(diff);
+    /**
+     * Time in seconds
+     */
+    var totalSec = diff;
+    /**
+     * Unit of time
+     */
+    var idx = 0;
+    for (; diff >= SEC_ARRAY[idx] && idx < SEC_ARRAY.length; idx++) {
+        diff /= SEC_ARRAY[idx];
+    }
+    /**
+     * Math.floor() is alternative of ~~
+     *
+     * The differences and bugs:
+     * Math.floor(3.7) -> 4 but ~~3.7 -> 3
+     * Math.floor(1559125440000.6) -> 1559125440000 but ~~1559125440000.6 -> 52311552
+     *
+     * More information about the performance of algebraic:
+     * https://www.youtube.com/watch?v=65-RbBwZQdU
+     */
+    diff = Math.floor(diff);
+    idx *= 2;
+    if (diff > (idx === 0 ? 9 : 1))
+        idx += 1;
+    return localeFunc(diff, idx, totalSec)[agoIn].replace('%s', diff.toString());
+}
+/**
+ * calculate the diff second between date to be formatted an now date.
+ * @param date
+ * @param relativeDate
+ * @returns {number}
+ */
+function diffSec(date, relativeDate) {
+    var relDate = relativeDate ? toDate(relativeDate) : new Date();
+    return (+relDate - +toDate(date)) / 1000;
+}
+/**
+ * nextInterval: calculate the next interval time.
+ * - diff: the diff sec between now and date to be formatted.
+ *
+ * What's the meaning?
+ * diff = 61 then return 59
+ * diff = 3601 (an hour + 1 second), then return 3599
+ * make the interval with high performance.
+ **/
+function nextInterval(diff) {
+    var rst = 1, i = 0, d = Math.abs(diff);
+    for (; diff >= SEC_ARRAY[i] && i < SEC_ARRAY.length; i++) {
+        diff /= SEC_ARRAY[i];
+        rst *= SEC_ARRAY[i];
+    }
+    d = d % rst;
+    d = d ? rst - d : rst;
+    return Math.ceil(d);
+}
+//# sourceMappingURL=date.js.map
+
+/***/ }),
+
+/***/ "./node_modules/timeago.js/esm/utils/dom.js":
+/*!**************************************************!*\
+  !*** ./node_modules/timeago.js/esm/utils/dom.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getDateAttribute: () => (/* binding */ getDateAttribute),
+/* harmony export */   getTimerId: () => (/* binding */ getTimerId),
+/* harmony export */   setTimerId: () => (/* binding */ setTimerId)
+/* harmony export */ });
+var ATTR_TIMEAGO_TID = 'timeago-id';
+/**
+ * get the datetime attribute, `datetime` are supported.
+ * @param node
+ * @returns {*}
+ */
+function getDateAttribute(node) {
+    return node.getAttribute('datetime');
+}
+/**
+ * set the node attribute, native DOM
+ * @param node
+ * @param timerId
+ * @returns {*}
+ */
+function setTimerId(node, timerId) {
+    // @ts-ignore
+    node.setAttribute(ATTR_TIMEAGO_TID, timerId);
+}
+/**
+ * get the timer id
+ * @param node
+ */
+function getTimerId(node) {
+    return parseInt(node.getAttribute(ATTR_TIMEAGO_TID));
+}
+//# sourceMappingURL=dom.js.map
 
 /***/ }),
 
@@ -1813,6 +2320,471 @@ if (DEV_MODE && globalThis.litElementVersions.length > 1) {
         `is not recommended.`);
 }
 //# sourceMappingURL=lit-element.js.map
+
+/***/ }),
+
+/***/ "./node_modules/lit-html/development/async-directive.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/lit-html/development/async-directive.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AsyncDirective: () => (/* binding */ AsyncDirective),
+/* harmony export */   Directive: () => (/* reexport safe */ _directive_js__WEBPACK_IMPORTED_MODULE_1__.Directive),
+/* harmony export */   PartType: () => (/* reexport safe */ _directive_js__WEBPACK_IMPORTED_MODULE_1__.PartType),
+/* harmony export */   directive: () => (/* reexport safe */ _directive_js__WEBPACK_IMPORTED_MODULE_1__.directive)
+/* harmony export */ });
+/* harmony import */ var _directive_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./directive-helpers.js */ "./node_modules/lit-html/development/directive-helpers.js");
+/* harmony import */ var _directive_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./directive.js */ "./node_modules/lit-html/development/directive.js");
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+
+
+const DEV_MODE = true;
+/**
+ * Recursively walks down the tree of Parts/TemplateInstances/Directives to set
+ * the connected state of directives and run `disconnected`/ `reconnected`
+ * callbacks.
+ *
+ * @return True if there were children to disconnect; false otherwise
+ */
+const notifyChildrenConnectedChanged = (parent, isConnected) => {
+    var _a, _b;
+    const children = parent._$disconnectableChildren;
+    if (children === undefined) {
+        return false;
+    }
+    for (const obj of children) {
+        // The existence of `_$notifyDirectiveConnectionChanged` is used as a "brand" to
+        // disambiguate AsyncDirectives from other DisconnectableChildren
+        // (as opposed to using an instanceof check to know when to call it); the
+        // redundancy of "Directive" in the API name is to avoid conflicting with
+        // `_$notifyConnectionChanged`, which exists `ChildParts` which are also in
+        // this list
+        // Disconnect Directive (and any nested directives contained within)
+        // This property needs to remain unminified.
+        (_b = (_a = obj)['_$notifyDirectiveConnectionChanged']) === null || _b === void 0 ? void 0 : _b.call(_a, isConnected, false);
+        // Disconnect Part/TemplateInstance
+        notifyChildrenConnectedChanged(obj, isConnected);
+    }
+    return true;
+};
+/**
+ * Removes the given child from its parent list of disconnectable children, and
+ * if the parent list becomes empty as a result, removes the parent from its
+ * parent, and so forth up the tree when that causes subsequent parent lists to
+ * become empty.
+ */
+const removeDisconnectableFromParent = (obj) => {
+    let parent, children;
+    do {
+        if ((parent = obj._$parent) === undefined) {
+            break;
+        }
+        children = parent._$disconnectableChildren;
+        children.delete(obj);
+        obj = parent;
+    } while ((children === null || children === void 0 ? void 0 : children.size) === 0);
+};
+const addDisconnectableToParent = (obj) => {
+    // Climb the parent tree, creating a sparse tree of children needing
+    // disconnection
+    for (let parent; (parent = obj._$parent); obj = parent) {
+        let children = parent._$disconnectableChildren;
+        if (children === undefined) {
+            parent._$disconnectableChildren = children = new Set();
+        }
+        else if (children.has(obj)) {
+            // Once we've reached a parent that already contains this child, we
+            // can short-circuit
+            break;
+        }
+        children.add(obj);
+        installDisconnectAPI(parent);
+    }
+};
+/**
+ * Changes the parent reference of the ChildPart, and updates the sparse tree of
+ * Disconnectable children accordingly.
+ *
+ * Note, this method will be patched onto ChildPart instances and called from
+ * the core code when parts are moved between different parents.
+ */
+function reparentDisconnectables(newParent) {
+    if (this._$disconnectableChildren !== undefined) {
+        removeDisconnectableFromParent(this);
+        this._$parent = newParent;
+        addDisconnectableToParent(this);
+    }
+    else {
+        this._$parent = newParent;
+    }
+}
+/**
+ * Sets the connected state on any directives contained within the committed
+ * value of this part (i.e. within a TemplateInstance or iterable of
+ * ChildParts) and runs their `disconnected`/`reconnected`s, as well as within
+ * any directives stored on the ChildPart (when `valueOnly` is false).
+ *
+ * `isClearingValue` should be passed as `true` on a top-level part that is
+ * clearing itself, and not as a result of recursively disconnecting directives
+ * as part of a `clear` operation higher up the tree. This both ensures that any
+ * directive on this ChildPart that produced a value that caused the clear
+ * operation is not disconnected, and also serves as a performance optimization
+ * to avoid needless bookkeeping when a subtree is going away; when clearing a
+ * subtree, only the top-most part need to remove itself from the parent.
+ *
+ * `fromPartIndex` is passed only in the case of a partial `_clear` running as a
+ * result of truncating an iterable.
+ *
+ * Note, this method will be patched onto ChildPart instances and called from the
+ * core code when parts are cleared or the connection state is changed by the
+ * user.
+ */
+function notifyChildPartConnectedChanged(isConnected, isClearingValue = false, fromPartIndex = 0) {
+    const value = this._$committedValue;
+    const children = this._$disconnectableChildren;
+    if (children === undefined || children.size === 0) {
+        return;
+    }
+    if (isClearingValue) {
+        if (Array.isArray(value)) {
+            // Iterable case: Any ChildParts created by the iterable should be
+            // disconnected and removed from this ChildPart's disconnectable
+            // children (starting at `fromPartIndex` in the case of truncation)
+            for (let i = fromPartIndex; i < value.length; i++) {
+                notifyChildrenConnectedChanged(value[i], false);
+                removeDisconnectableFromParent(value[i]);
+            }
+        }
+        else if (value != null) {
+            // TemplateInstance case: If the value has disconnectable children (will
+            // only be in the case that it is a TemplateInstance), we disconnect it
+            // and remove it from this ChildPart's disconnectable children
+            notifyChildrenConnectedChanged(value, false);
+            removeDisconnectableFromParent(value);
+        }
+    }
+    else {
+        notifyChildrenConnectedChanged(this, isConnected);
+    }
+}
+/**
+ * Patches disconnection API onto ChildParts.
+ */
+const installDisconnectAPI = (obj) => {
+    var _a, _b;
+    var _c, _d;
+    if (obj.type == _directive_js__WEBPACK_IMPORTED_MODULE_1__.PartType.CHILD) {
+        (_a = (_c = obj)._$notifyConnectionChanged) !== null && _a !== void 0 ? _a : (_c._$notifyConnectionChanged = notifyChildPartConnectedChanged);
+        (_b = (_d = obj)._$reparentDisconnectables) !== null && _b !== void 0 ? _b : (_d._$reparentDisconnectables = reparentDisconnectables);
+    }
+};
+/**
+ * An abstract `Directive` base class whose `disconnected` method will be
+ * called when the part containing the directive is cleared as a result of
+ * re-rendering, or when the user calls `part.setConnected(false)` on
+ * a part that was previously rendered containing the directive (as happens
+ * when e.g. a LitElement disconnects from the DOM).
+ *
+ * If `part.setConnected(true)` is subsequently called on a
+ * containing part, the directive's `reconnected` method will be called prior
+ * to its next `update`/`render` callbacks. When implementing `disconnected`,
+ * `reconnected` should also be implemented to be compatible with reconnection.
+ *
+ * Note that updates may occur while the directive is disconnected. As such,
+ * directives should generally check the `this.isConnected` flag during
+ * render/update to determine whether it is safe to subscribe to resources
+ * that may prevent garbage collection.
+ */
+class AsyncDirective extends _directive_js__WEBPACK_IMPORTED_MODULE_1__.Directive {
+    constructor() {
+        super(...arguments);
+        // @internal
+        this._$disconnectableChildren = undefined;
+    }
+    /**
+     * Initialize the part with internal fields
+     * @param part
+     * @param parent
+     * @param attributeIndex
+     */
+    _$initialize(part, parent, attributeIndex) {
+        super._$initialize(part, parent, attributeIndex);
+        addDisconnectableToParent(this);
+        this.isConnected = part._$isConnected;
+    }
+    // This property needs to remain unminified.
+    /**
+     * Called from the core code when a directive is going away from a part (in
+     * which case `shouldRemoveFromParent` should be true), and from the
+     * `setChildrenConnected` helper function when recursively changing the
+     * connection state of a tree (in which case `shouldRemoveFromParent` should
+     * be false).
+     *
+     * @param isConnected
+     * @param isClearingDirective - True when the directive itself is being
+     *     removed; false when the tree is being disconnected
+     * @internal
+     */
+    ['_$notifyDirectiveConnectionChanged'](isConnected, isClearingDirective = true) {
+        var _a, _b;
+        if (isConnected !== this.isConnected) {
+            this.isConnected = isConnected;
+            if (isConnected) {
+                (_a = this.reconnected) === null || _a === void 0 ? void 0 : _a.call(this);
+            }
+            else {
+                (_b = this.disconnected) === null || _b === void 0 ? void 0 : _b.call(this);
+            }
+        }
+        if (isClearingDirective) {
+            notifyChildrenConnectedChanged(this, isConnected);
+            removeDisconnectableFromParent(this);
+        }
+    }
+    /**
+     * Sets the value of the directive's Part outside the normal `update`/`render`
+     * lifecycle of a directive.
+     *
+     * This method should not be called synchronously from a directive's `update`
+     * or `render`.
+     *
+     * @param directive The directive to update
+     * @param value The value to set
+     */
+    setValue(value) {
+        if ((0,_directive_helpers_js__WEBPACK_IMPORTED_MODULE_0__.isSingleExpression)(this.__part)) {
+            this.__part._$setValue(value, this);
+        }
+        else {
+            // this.__attributeIndex will be defined in this case, but
+            // assert it in dev mode
+            if (DEV_MODE && this.__attributeIndex === undefined) {
+                throw new Error(`Expected this.__attributeIndex to be a number`);
+            }
+            const newValues = [...this.__part._$committedValue];
+            newValues[this.__attributeIndex] = value;
+            this.__part._$setValue(newValues, this, 0);
+        }
+    }
+    /**
+     * User callbacks for implementing logic to release any resources/subscriptions
+     * that may have been retained by this directive. Since directives may also be
+     * re-connected, `reconnected` should also be implemented to restore the
+     * working state of the directive prior to the next render.
+     */
+    disconnected() { }
+    reconnected() { }
+}
+//# sourceMappingURL=async-directive.js.map
+
+/***/ }),
+
+/***/ "./node_modules/lit-html/development/directive-helpers.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/lit-html/development/directive-helpers.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TemplateResultType: () => (/* binding */ TemplateResultType),
+/* harmony export */   clearPart: () => (/* binding */ clearPart),
+/* harmony export */   getCommittedValue: () => (/* binding */ getCommittedValue),
+/* harmony export */   getDirectiveClass: () => (/* binding */ getDirectiveClass),
+/* harmony export */   insertPart: () => (/* binding */ insertPart),
+/* harmony export */   isDirectiveResult: () => (/* binding */ isDirectiveResult),
+/* harmony export */   isPrimitive: () => (/* binding */ isPrimitive),
+/* harmony export */   isSingleExpression: () => (/* binding */ isSingleExpression),
+/* harmony export */   isTemplateResult: () => (/* binding */ isTemplateResult),
+/* harmony export */   removePart: () => (/* binding */ removePart),
+/* harmony export */   setChildPartValue: () => (/* binding */ setChildPartValue),
+/* harmony export */   setCommittedValue: () => (/* binding */ setCommittedValue)
+/* harmony export */ });
+/* harmony import */ var _lit_html_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lit-html.js */ "./node_modules/lit-html/development/lit-html.js");
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+var _a, _b;
+
+const { _ChildPart: ChildPart } = _lit_html_js__WEBPACK_IMPORTED_MODULE_0__._$LH;
+const ENABLE_SHADYDOM_NOPATCH = true;
+const wrap = ENABLE_SHADYDOM_NOPATCH &&
+    ((_a = window.ShadyDOM) === null || _a === void 0 ? void 0 : _a.inUse) &&
+    ((_b = window.ShadyDOM) === null || _b === void 0 ? void 0 : _b.noPatch) === true
+    ? window.ShadyDOM.wrap
+    : (node) => node;
+/**
+ * Tests if a value is a primitive value.
+ *
+ * See https://tc39.github.io/ecma262/#sec-typeof-operator
+ */
+const isPrimitive = (value) => value === null || (typeof value != 'object' && typeof value != 'function');
+const TemplateResultType = {
+    HTML: 1,
+    SVG: 2,
+};
+/**
+ * Tests if a value is a TemplateResult.
+ */
+const isTemplateResult = (value, type) => type === undefined
+    ? // This property needs to remain unminified.
+        (value === null || value === void 0 ? void 0 : value['_$litType$']) !== undefined
+    : (value === null || value === void 0 ? void 0 : value['_$litType$']) === type;
+/**
+ * Tests if a value is a DirectiveResult.
+ */
+const isDirectiveResult = (value) => 
+// This property needs to remain unminified.
+(value === null || value === void 0 ? void 0 : value['_$litDirective$']) !== undefined;
+/**
+ * Retrieves the Directive class for a DirectiveResult
+ */
+const getDirectiveClass = (value) => 
+// This property needs to remain unminified.
+value === null || value === void 0 ? void 0 : value['_$litDirective$'];
+/**
+ * Tests whether a part has only a single-expression with no strings to
+ * interpolate between.
+ *
+ * Only AttributePart and PropertyPart can have multiple expressions.
+ * Multi-expression parts have a `strings` property and single-expression
+ * parts do not.
+ */
+const isSingleExpression = (part) => part.strings === undefined;
+const createMarker = () => document.createComment('');
+/**
+ * Inserts a ChildPart into the given container ChildPart's DOM, either at the
+ * end of the container ChildPart, or before the optional `refPart`.
+ *
+ * This does not add the part to the containerPart's committed value. That must
+ * be done by callers.
+ *
+ * @param containerPart Part within which to add the new ChildPart
+ * @param refPart Part before which to add the new ChildPart; when omitted the
+ *     part added to the end of the `containerPart`
+ * @param part Part to insert, or undefined to create a new part
+ */
+const insertPart = (containerPart, refPart, part) => {
+    var _a;
+    const container = wrap(containerPart._$startNode).parentNode;
+    const refNode = refPart === undefined ? containerPart._$endNode : refPart._$startNode;
+    if (part === undefined) {
+        const startNode = wrap(container).insertBefore(createMarker(), refNode);
+        const endNode = wrap(container).insertBefore(createMarker(), refNode);
+        part = new ChildPart(startNode, endNode, containerPart, containerPart.options);
+    }
+    else {
+        const endNode = wrap(part._$endNode).nextSibling;
+        const oldParent = part._$parent;
+        const parentChanged = oldParent !== containerPart;
+        if (parentChanged) {
+            (_a = part._$reparentDisconnectables) === null || _a === void 0 ? void 0 : _a.call(part, containerPart);
+            // Note that although `_$reparentDisconnectables` updates the part's
+            // `_$parent` reference after unlinking from its current parent, that
+            // method only exists if Disconnectables are present, so we need to
+            // unconditionally set it here
+            part._$parent = containerPart;
+            // Since the _$isConnected getter is somewhat costly, only
+            // read it once we know the subtree has directives that need
+            // to be notified
+            let newConnectionState;
+            if (part._$notifyConnectionChanged !== undefined &&
+                (newConnectionState = containerPart._$isConnected) !==
+                    oldParent._$isConnected) {
+                part._$notifyConnectionChanged(newConnectionState);
+            }
+        }
+        if (endNode !== refNode || parentChanged) {
+            let start = part._$startNode;
+            while (start !== endNode) {
+                const n = wrap(start).nextSibling;
+                wrap(container).insertBefore(start, refNode);
+                start = n;
+            }
+        }
+    }
+    return part;
+};
+/**
+ * Sets the value of a Part.
+ *
+ * Note that this should only be used to set/update the value of user-created
+ * parts (i.e. those created using `insertPart`); it should not be used
+ * by directives to set the value of the directive's container part. Directives
+ * should return a value from `update`/`render` to update their part state.
+ *
+ * For directives that require setting their part value asynchronously, they
+ * should extend `AsyncDirective` and call `this.setValue()`.
+ *
+ * @param part Part to set
+ * @param value Value to set
+ * @param index For `AttributePart`s, the index to set
+ * @param directiveParent Used internally; should not be set by user
+ */
+const setChildPartValue = (part, value, directiveParent = part) => {
+    part._$setValue(value, directiveParent);
+    return part;
+};
+// A sentinel value that can never appear as a part value except when set by
+// live(). Used to force a dirty-check to fail and cause a re-render.
+const RESET_VALUE = {};
+/**
+ * Sets the committed value of a ChildPart directly without triggering the
+ * commit stage of the part.
+ *
+ * This is useful in cases where a directive needs to update the part such
+ * that the next update detects a value change or not. When value is omitted,
+ * the next update will be guaranteed to be detected as a change.
+ *
+ * @param part
+ * @param value
+ */
+const setCommittedValue = (part, value = RESET_VALUE) => (part._$committedValue = value);
+/**
+ * Returns the committed value of a ChildPart.
+ *
+ * The committed value is used for change detection and efficient updates of
+ * the part. It can differ from the value set by the template or directive in
+ * cases where the template value is transformed before being committed.
+ *
+ * - `TemplateResult`s are committed as a `TemplateInstance`
+ * - Iterables are committed as `Array<ChildPart>`
+ * - All other types are committed as the template value or value returned or
+ *   set by a directive.
+ *
+ * @param part
+ */
+const getCommittedValue = (part) => part._$committedValue;
+/**
+ * Removes a ChildPart from the DOM, including any of its content.
+ *
+ * @param part The Part to remove
+ */
+const removePart = (part) => {
+    var _a;
+    (_a = part._$notifyConnectionChanged) === null || _a === void 0 ? void 0 : _a.call(part, false, true);
+    let start = part._$startNode;
+    const end = wrap(part._$endNode).nextSibling;
+    while (start !== end) {
+        const n = wrap(start).nextSibling;
+        wrap(start).remove();
+        start = n;
+    }
+};
+const clearPart = (part) => {
+    part._$clear();
+};
+//# sourceMappingURL=directive-helpers.js.map
 
 /***/ }),
 
@@ -3541,6 +4513,26 @@ if (ENABLE_EXTRA_SECURITY_HOOKS) {
 
 /***/ }),
 
+/***/ "./node_modules/lit/async-directive.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lit/async-directive.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AsyncDirective: () => (/* reexport safe */ lit_html_async_directive_js__WEBPACK_IMPORTED_MODULE_0__.AsyncDirective),
+/* harmony export */   Directive: () => (/* reexport safe */ lit_html_async_directive_js__WEBPACK_IMPORTED_MODULE_0__.Directive),
+/* harmony export */   PartType: () => (/* reexport safe */ lit_html_async_directive_js__WEBPACK_IMPORTED_MODULE_0__.PartType),
+/* harmony export */   directive: () => (/* reexport safe */ lit_html_async_directive_js__WEBPACK_IMPORTED_MODULE_0__.directive)
+/* harmony export */ });
+/* harmony import */ var lit_html_async_directive_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lit-html/async-directive.js */ "./node_modules/lit-html/development/async-directive.js");
+
+//# sourceMappingURL=async-directive.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/lit/directives/style-map.js":
 /*!**************************************************!*\
   !*** ./node_modules/lit/directives/style-map.js ***!
@@ -3659,10 +4651,14 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var _components_PollWidget_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PollWidget.js */ "./src/components/PollWidget.js");
 
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_components_PollWidget_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundleca28fae962845d66a91e.js.map
+//# sourceMappingURL=bundle8027b0f01450bb6ad3ee.js.map
